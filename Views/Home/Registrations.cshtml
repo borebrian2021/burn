@@ -1,0 +1,358 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        margin: 20px;
+    }
+
+    h2 {
+        color: #d32f2f;
+    }
+
+    h3 {
+        color: #d32f2f;
+    }
+
+    ul {
+        margin-left: 20px;
+    }
+</style>
+
+
+<section class="ftco-section mt-100" style="margin-bottom:125px; margin-top:100px" id="login">
+    <div class="container-fluid " style="margin-bottom:125px; margin-top:100px">
+
+        <div class="row justify-content-center">
+            <div class="col-md-12 col-lg-10">
+
+
+                <div class=" ">
+                    <div class="d-flex">
+                        <div class="w-100">
+                            <h3 class="mb-4">Conference registration & Payment</h3>
+                        </div>
+
+                    </div>
+                    <form class="signin-form" id="register_members">
+                       
+                        <div class="row">
+                            <!-- Will you attend? -->
+                           
+                                    <input hidden type="text" class="form-control custome-input" value="Not paid"  id="fname" name="Payment_Status" required>
+                            <input hidden type="text" class="form-control custome-input" value="3" id="fname" name="Status_code" required>
+ <div class="col-lg-6">
+                                <div class="form-group mb-3">
+                                    <label class="label">Will you attend? *</label>
+                                    <select class="form-control custome-input" name="Attend" required>
+                                        <option value="">Select an option</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">No</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Name -->
+                            <div class="col-lg-6">
+                                <div class="form-group mb-3">
+                                    <label class="label" for="name">First Name *</label>
+                                    <input type="text" class="form-control custome-input" placeholder="Enter your name" id="name" name="FName" required>
+                                </div>
+                            </div> <div class="col-lg-6">
+                                <div class="form-group mb-3">
+                                    <label class="label" for="name">Second Name *</label>
+                                    <input type="text" class="form-control custome-input" placeholder="Enter your name" id="name" name="SName" required>
+                                </div>
+                            </div>
+
+                            <!-- Cadre -->
+                            <div class="col-lg-6">
+                                <div class="form-group mb-3">
+                                    <label class="label" for="cadre">Please enter Cadre *</label>
+                                    <input type="text" class="form-control custome-input" placeholder="Enter your cadre" id="cadre" name="Cadre" required>
+                                </div>
+                            </div>
+
+                            <!-- Telephone Number -->
+                            <div class="col-lg-6">
+                                <div class="form-group mb-3">
+                                    <label class="label" for="telephone">Telephone Number *</label>
+                                    <input type="text" class="form-control custome-input" placeholder="Enter your phone number" id="telephone" name="TelephoneNumber" required>
+                                </div>
+                            </div>
+
+                            <!-- Email Address -->
+                            <div class="col-lg-6">
+                                <div class="form-group mb-3">
+                                    <label class="label" for="email">Email Address *</label>
+                                    <input type="email" class="form-control custome-input" placeholder="Enter your email" id="email" name="EmailAddress" required>
+                                </div>
+                            </div>
+
+                            <!-- Institutional Affiliation -->
+                            <div class="col-lg-6">
+                                <div class="form-group mb-3">
+                                    <label class="label" for="institution">Institutional Affiliation *</label>
+                                    <input type="text" class="form-control custome-input" placeholder="Enter your institution" id="institution" name="Institution" required>
+                                </div>
+                            </div>
+
+                            <!-- Payment Confirmation -->
+                            <div class="col-lg-6">
+                                <div class="form-group mb-3">
+                                    <label class="label">I understand that I will have to pay the registration fee before or upon arrival. *</label>
+                                    <select class="form-control custome-input" name="PaymentConfirmation" required>
+                                        <option value="">Select an option</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">No</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-12">
+                                <div class="col-lg-12 text-left">
+                                    <h3 class="text-center m-3"> Registration Fee Table</h3>
+                                    <table class="table table-bordered table-striped text-center" >
+                                        <thead   style="background-color:#f15226;color:white">
+                                            <tr>
+                                                <th>Category</th>
+                                                <th>Super Early Bird</th>
+                                                <th>Early Bird Fee</th>
+                                                <th>Late and Onsite Fee</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Physician consultant</td>
+                                                <td>USD 250</td>
+                                                <td>USD 280</td>
+                                                <td>USD 300</td>
+                       
+                                            </tr>
+                                            <tr>
+                                                <td>Physician Non - Consultants</td>
+                                                <td>USD 200</td>
+                                                <td>USD 250</td>
+                                                <td>USD 280</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Nurses & Paramedics(East African)</td>
+                                                <td>KSH 10,000</td>
+                                                <td>KSH 10,000</td>
+                                                <td>KSH 10,000</td>
+                                            </tr>
+                                           
+                                             <tr>
+                                                <td>Nurses & Paramedics(Non-East African)</td>
+                                                <td>18,000</td>
+                                                <td>20,250</td>
+                                                <td>22,500</td>
+                                            </tr>
+                                           
+                                            
+                                           
+                                        </tbody>
+                                    </table>
+
+                                    <h3 class="text-center m-4">Deadlines:</h3>
+                                    <ul class="list-group">
+                                        <li class="list-group-item"><strong>Physician consultant:</strong> 30th April 2025</li>
+                                        <li class="list-group-item"><strong>Early Bird:</strong> 18th-31st July 2025</li>
+                                        <li class="list-group-item"><strong>On-Site:</strong>29th October 2025</li>
+                                    </ul>
+
+                                    <p class="text-left font-weight-bold  m-4" style="color:#f15226">
+                                        ✅ For Kenyan nurses and paramedics, a 50% deposit is allowed to qualify for the super early bird slot, while the balance must be cleared before 1st August.
+                                    </p>
+                                   
+
+
+                                </div>
+                            </div>
+                            <div style="border-radius:30px;box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;text-align:left" class="mt-5 p-4">
+                                <h3 class="m-4">Payments section</h3>
+
+                            <div class="row">
+                            <!-- Submit Button -->
+                            <div class="col-lg-6 text-center">
+                                <div class="form-group" style="text-align:center;justify-content:center;align-items:center">
+                                    
+                                    <label for="category">Select Category:</label>
+                                            <select class="form-control custome-input" id="category" name="PaymentCategory" rquired onchange="test()">
+                                        <option value="" disabled selected >Select a category</option>
+                                                <option value="Nurses&Paramedics(East African)">Nurses & Paramedics(East African)</option>
+                                                <option value="Nurses&Paramedics(Non-EastAfrican)">Nurses & Paramedics(Non-East African)</option>
+                                                <option value="Physician Consultant">Physician Consultants</option>
+                                                <option value="Physician Non-Consultant">Physician Non - Consultants</option>
+                              
+                                    </select>
+                                    <br>
+                                        </div>
+                            </div><!-- Submit Button -->
+                            <div class="col-lg-6 text-center">
+                                <div class="form-group" style="text-align:left;justify-content:center;align-items:center">
+                                    <label for="category">  Kenyan Nurse?</label>
+                                            <select class="form-control custome-input" name="KenyanNurse" required>
+                                                <option value="">Select an option</option>
+                                                <option value="Yes">Yes</option>
+                                                <option value="No">No</option>
+                                            </select>
+                                    <br>
+                                        </div>
+                            </div>
+                             <div class="col-lg-6 text-center">
+                                <div class="form-group" style="text-align:left;justify-content:center;align-items:center">
+                                    <label for="category">Select Currency to Pay:</label>
+                                        <select class="form-control custome-input"  rquired name="Currency" id="currency">
+                                            <option value="KES">Kenya shillings</option>
+                                            <option value="UGX">Ugandan Shillings</option>
+                                            <option value="TZS">Tanzanian shillings</option>
+                                            <option value="USD">US Dollars</option>
+                                        </select>
+                                    <br>
+                                        </div>
+                            </div>
+                            
+                            <div class="col-lg-6 text-center ">
+                                <div class="form-group" style="text-align:left;justify-content:center;align-items:center">
+                                    <img src="/assets/images/gallery/loading.gif" id="loading" style="height:50px;width:50px" />
+                                         <label> <input required type="checkbox" />
+                                         
+                                            <a href="#" style="color:red;text-decoration:underline;margin:10px" data-toggle="modal" data-target="#PayModal1">Terms & Conditions</a>
+                                            </label>
+                                            <button type="submit" class="form-control btn rounded submit px-3" style="background-color:#f15226;color:white" id="Register_">Make Payment</button>
+                                </div>
+                            </div>
+                            </div>
+                            </div>
+
+                          
+                        </div>
+                    </form>
+
+                </div>
+
+
+            </div>
+        </div>
+ </div>
+</section>
+
+
+<!-- Payment Modal -->
+<div class="modal fade" data-backdrop="static" id="PayModal" tabindex="-1" role="dialog" aria-labelledby="PayModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header custome_header_bg_color">
+                <h4 class="text-white font-weight-light">Please complete the payment to proceed!</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <iframe id="paymentIframe" width="100%" height="620px" frameborder="0" scrolling="auto"></iframe>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div><!-- Payment Modal -->
+<div class="modal fade" data-backdrop="static" id="PayModal1" tabindex="-1" role="dialog" aria-labelledby="PayModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header custome_header_bg_color">
+                <h4 class="text-white font-weight-light">Terms & Conditions</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h4>Terms and Conditions for Payments</h4>
+                <h4>11th Pan African Burn Society (PABS) Congress</h4>
+                <p><strong>Date:</strong> October 29th – 31st, 2025</p>
+                <p><strong>Venue:</strong> Ole Sereni Hotel, Nairobi, Kenya</p>
+
+                <h4>1. Payment Categories & Fees</h4>
+                <ul>
+                    <li>Physician Consultants</li>
+                    <li>Physician Non-Consultants</li>
+                    <li>Nurses & Paramedics (East African - EA)</li>
+                    <li>Nurses & Paramedics (Non-East African)</li>
+                </ul>
+                <p>Fees are structured into three phases:</p>
+                <ul>
+                    <li><strong>Super Early Bird Fee:</strong> Before April 30, 2025</li>
+                    <li><strong>Early Bird Fee:</strong> July 18 - July 31, 2025</li>
+                    <li><strong>Late and Onsite Fee:</strong> From August 1, 2025</li>
+                </ul>
+                <p><strong>Kenyan Nurses and Paramedics:</strong> A 50% deposit is allowed to qualify for Super Early Bird Slot, provided the balance is paid before August 1, 2025.</p>
+
+                <h4>2. Payment Methods</h4>
+                <p>Payments can be made using the following methods:</p>
+                <ul>
+                    <li>Online via Pesapa - During registration</li>
+                    <li>Direct Bank Transfer</li>
+                    <li>Mobile Money Payments</li>
+                    </ul>
+                <p>Online payment options are available via the official <a href="https://panafricanburns.com/home/registrations">Conference registration</a>.</p>
+
+                <h4>3. Currency & Payment Rules</h4>
+                <ul>
+                    <li>Nurses & Paramedics (East African) must pay in <strong>Kenyan Shillings (KES)</strong>.</li>
+                    <li>Physicians and Non-East African participants must pay in <strong>US Dollars (USD)</strong>.</li>
+                    <li>The selected currency cannot be changed after payment.</li>
+                    <li>All bank transfer fees must be borne by the participant.</li>
+                </ul>
+
+                <h4>4. Refund & Cancellation Policy</h4>
+                <p>Cancellation requests must be sent via email to <strong>info@panafricanburns.com</strong>. Refunds will be processed within 30 days of approval.</p>
+                <ul>
+                    <li><strong>Before July 31, 2025:</strong> 75% refund (minus transaction fees).</li>
+                    <li><strong>Between August 1 - September 15, 2025:</strong> 50% refund (minus transaction fees).</li>
+                    <li><strong>After September 15, 2025:</strong> No refund.</li>
+                </ul>
+                <p>Registration fees are <strong>non-transferable</strong> to other individuals or future events.</p>
+
+                <h4>5. Discounts & Deposit Policy</h4>
+                <ul>
+                    <li><strong>Super Early Bird Discount:</strong> Kenyan Nurses & Paramedics can pay 50% upfront and clear the balance by August 1, 2025.</li>
+                    <li>Group Discounts may be available for organizations registering multiple participants (subject to approval).</li>
+                </ul>
+
+                <h4>6. Payment Confirmation & Receipts</h4>
+                <ul>
+                    <li>A payment confirmation email will be sent upon successful transaction processing.</li>
+                    <li>Participants must retain proof of payment for verification during event registration.</li>
+                </ul>
+                <h4>7. Transaction cost</h4>
+                <ul>
+                    <li> <p>All payments made via Pesapal are subject to a transaction fee of <strong>3.5%</strong> of the total amount. This fee applies to all transactions, including conference registration and any other applicable charges.</p></li>
+                </ul>
+
+                <h4>8. Contact Information</h4>
+                <p><strong>Email:</strong> <a href="mailto:info@panafricanburns.com">info@panafricanburns.com</a></p>
+                <p><strong>Phone:</strong> +254 724 888666</p>
+                <p><strong>Website:</strong> <a href="https://panafricanburns.com">https://panafricanburns.com</a></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- JavaScript to Set Payment URL -->
+<script>
+    function setPaymentUrl() {
+        let testUrl = "https://example.com"; // Replace with actual payment URL
+        document.getElementById("paymentIframe").src = testUrl;
+    }
+</script>
+
+
+
+
+

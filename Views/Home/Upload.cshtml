@@ -1,0 +1,75 @@
+﻿@{
+    Layout = "~/Views/Shared/Auth_Layout.cshtml";
+}
+
+<section class="ftco-section mt-100"  style="margin-bottom:125px; margin-top:200px"  id="login">
+    <div class="container " style="margin-bottom:125px; margin-top:200px">
+
+            <div class="row justify-content-center">
+                <div class="col-md-12 col-lg-10">
+                  
+                  
+                        <div class=" p-4 p-md-5">
+                            <div class="d-flex">
+                                <div class="w-100">
+                                    <h3 class="mb-4">Upload Abstract</h3>
+                                </div>
+                               
+                            </div>
+                    <form  class="signin-form" id="upload_abstract">
+                        <div class="row">
+                            <div class="col-lg-6">
+                        <div class="form-group mb-3">
+                            <label class="label" for="name">First Name:</label>
+                            <input type="text" class="form-control custome-input" placeholder="First Name" id="fname" name="fname" required>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                            <div class="form-group mb-3">
+                            <label class="label" for="name">Last Name:</label>
+                            <input type="text" class="form-control custome-input" placeholder="Last Name" id="lname" name="lname" required>
+                        </div>  
+                        </div>
+                            <div class="col-lg-6">
+                        <div class="form-group mb-3">
+                            <label class="label" for="name">Affiliated Institution:</label>
+                            <input type="text" class="form-control custome-input" placeholder="Affiliated Institution" id="institution" name="institution" required>
+                                </div>
+                            </div>   <div class="col-lg-6">
+                                <div class="form-group mb-3">
+                                    <label class="label" for="name">Email:</label>
+                                <input type="email" class="form-control custome-input" placeholder="Email" id="email_l" name="email" required>
+                                </div>
+                                </div>
+                            <div class="col-lg-6">
+                            <div class="form-group mb-3">
+                                <label class="label" for="password">Phone Number:</label>
+                                <input type="text" min="8" value="+254" class="form-control custome-input"  placeholder="Phone Number" id="Pnumber" required>
+                            </div>
+                            </div>
+                            <div class="col-lg-12">
+                            <div class="form-group mb-3">
+                                <label class="label" for="password">Please type your abstract (Maximum of 250 words):</label>
+                            <textarea class="content" id="abstract" onChange="maxlength(this, 250)" name="example" maxlength="800  custome-input"></textarea>
+                            </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="form-group" style="text-align:center;justify-content:center;align-items:center">
+                                    <img src="/assets/images/gallery/loading.gif"  id="loading" style="height:50px;width:50px"/>
+                                    <button type="submit" class="form-control btn btn-primary rounded submit px-3" width="200" id="uploadDoc">Submit</button>
+                            </div>
+                            </div>
+                        </div>
+                            </form>
+                     
+                        </div>
+                   
+                   
+                </div>
+            </div>
+        </div>
+    </section>
+ 
+
+<!-- Mirrored from preview.colorlib.com/theme/bootstrap/login-form-14/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 23 Dec 2024 18:05:08 GMT -->
+

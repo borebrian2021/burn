@@ -1,0 +1,283 @@
+﻿@{
+    Layout = null;
+}
+
+<head>
+    <meta charset="utf-8">
+
+  <title>Pan African Burn Society - Promoting Burn Care and Awareness</title>
+  <meta name="description" content="Advancing burn care, prevention, and research across Africa through collaboration, education, and advocacy.">
+  <meta name="keywords" content="Pan African Burn Society, Burn Care, Burn Prevention, Burn Research, Africa, Healthcare">
+  <meta name="author" content="Pan African Burn Society">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#ff2744">
+
+    <link rel="shortcut icon" href="/assets/images/burn.png" type="image/png">
+
+    <!--====== Magnific Popup CSS ======-->
+    <link rel="stylesheet" href="/assets/css/magnific-popup.css">
+
+    <!--====== Animate CSS ======-->
+    <link rel="stylesheet" href="/assets/css/animate.css">
+
+    <!--====== Slick CSS ======-->
+    <link rel="stylesheet" href="/assets/css/slick.css" asp-append-version="true">
+
+    <!--====== Font Awesome CSS ======-->
+    <link rel="stylesheet" href="/assets/css/font-awesome.min.css" asp-append-version="true">
+
+    <!--====== Bootstrap CSS ======-->
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css" asp-append-version="true">
+
+    <!--====== Default CSS ======-->
+    <link rel="stylesheet" href="/assets/css/default.css" asp-append-version="true">
+
+    <!--====== Style CSS ======-->
+    <link rel="stylesheet" href="/assets/css/style1.css" asp-append-version="true">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.15.3/dist/sweetalert2.min.css" asp-append-version="true">
+    @* <link rel="stylesheet" href="/css/login/style.css" asp-append-version="true"> *@
+</head>
+
+<!--====== PRELOADER PART ENDS ======-->
+<!--====== HEADER PART START ======-->
+<body>
+    <div id="preloader">
+        <div class="preloader">
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+    <header class="header_area">
+        <div class="header_top">
+            <div class="container">
+                <div class="header_top_wrapper d-md-flex justify-content-between">
+                    <div class="header_social text-center">
+                        <ul>
+                            <li><a href="https://www.facebook.com/profile.php?id=61571683589236" target="_blank"><i class="fa fa-facebook-square"></i></a></li>
+                            <li><a href="https://x.com/PanAfricanBurns" target="_blank"><i class="fa fa-twitter-square"></i></a></li>
+                            <li><a href="https://www.instagram.com/pabskenya/" target="_blank"><i class="fa fa-instagram"></i></a></li>
+                         
+                        </ul>
+                    </div> <!-- header social -->
+
+                    <div class="header_info d-none d-md-block">
+                        <ul>
+                            <li><img src="assets/images/call.png" alt=""><a href="tel:+254724888666">+254724888666</a></li>
+                            <li><img src="assets/images/mail.png" alt=""><a href="#">info@panafricanburns.com</a></li>
+                        </ul>
+                    </div> <!-- header info -->
+                </div> <!-- header top wrapper -->
+            </div> <!-- container -->
+        </div> <!-- header top -->
+
+        <div class="header_navbar">
+            <div class="container">
+                <nav class="navbar navbar-expand-lg">
+                    <a class="navbar-brand" href="index.html">
+                        <img src="/assets/images/burn.png" class="small_logo" alt="logo"> <a class="logo" href="index.html">PABS </a>
+                    </a> <!-- logo -->
+
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="toggler-icon"></span>
+                        <span class="toggler-icon"></span>
+                        <span class="toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
+                        <ul class="navbar-nav m-auto">
+                            <li>
+                                <a class="active" href="/">Home </a>
+
+                            </li>
+                            <li>
+                                <a class="" href="/home/AboutUS">About Us</a>
+
+                            </li>
+                          @*   <li>
+                                <a class="" href="/home/Register">Membership </a>
+
+                            </li> *@
+                            <li>
+                                <a class="" href="/home/Events">Events </a>
+
+                            </li>
+                            <li>
+                                <a href="#">Gallery <i class="fa fa-angle-down"></i></a>
+
+                                <ul class="sub-menu">
+                                    <li><a href="/home/Gallery">Photos</a></li>
+                                    <li><a href="/home/Register">Media</a></li>
+                                </ul>
+                            </li>
+                             <li>
+                                <a href="#">Conference <i class="fa fa-angle-down"></i></a>
+
+                                <ul class="sub-menu">
+                                    <li><a href="/Home/Upload">Upload Abstract</a></li>
+                                    <li><a href="/Home/conferenceinformation">Conference Infomation</a></li>
+
+                                    @*<li><a href="/Home/Membership">Register Conference</a></li>*@ 
+                                </ul>
+                            </li>
+
+                            <li><a href="/home/ContactUs">Contact Us</a></li>
+
+                        </ul>
+                    </div> <!-- navbar collapse -->
+
+                    <div class="navbar_btn d-none d-sm-block">
+
+                        <a href="https://www.panafricanburns.com/home/registrations" class="main-btn register"><i class="fa fa-heart"></i>Register Conference</a>
+                    </div>
+
+                </nav> <!-- navbar -->
+            </div> <!-- container -->
+        </div> <!-- header navbar -->
+    </header>
+
+    <!--====== HEADER PART ENDS ======-->
+    @RenderBody()
+
+    <footer class="footer_area">
+        <div class="footer_widget pt-80 pb-130">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 order-md-1 order-lg-1">
+                        <div class="footer_about mt-50">
+                            <a href="#">
+                                <img src="/assets/images/burn.png" class="small_logo" alt="Logo">
+                            </a>
+
+                            <p>The Pan African Burn Society (PABS)</p>
+
+
+                        </div> <!-- footer about -->
+                    </div>
+                    <div class="col-lg-5 col-md-12 order-md-3 order-lg-2">
+                        <div class="footer_link_wrapper d-flex flex-wrap">
+                            <div class="footer_link mt-50">
+                                <h5 class="footer_title">Useful links</h5>
+                                <ul class="link">
+                                    <li><a href="/">Home</a></li>
+                                    <li><a href="/home/aboutus">About us</a></li>
+                                  @*   <li><a href="/home/Register">Membership</a></li> *@
+                                    <li><a href="/home/Gallery">Photos</a></li>
+
+                                    <li><a href="/home/Register">Media</a></li>
+                                     <li>
+                                <a href="#">Conference <i class="fa fa-angle-down"></i></a>
+
+                                <ul class="sub-menu">
+                                    <li><a href="/Home/Upload">Upload Abstract</a></li>
+                                            <li><a href="/Home/conferenceinformation">Conference Infomation</a></li>
+                                            @*<li><a href="/Home/Membership">Register Conference</a></li>*@ 
+                                </ul>
+                            </li>
+
+                                </ul>
+                            </div>
+
+                            <div class="footer_link mt-50">
+                                <h5 class="footer_title">Our Objectives</h5>
+                                <ul class="link">
+                                    <li><a href="#">Prevention</a></li>
+                                    <li><a href="#">Education</a></li>
+                                    <li><a href="#">Research</a></li>
+                                    <li><a href="#">Co-Operation</a></li>
+                                    <li><a href="#">Higher Standard of Care</a></li>
+                                    <li><a href="#">Advocacy</a></li>
+                                </ul>
+                            </div> <!-- footer link -->
+                        </div> <!-- footer link wrapper -->
+                    </div>
+                    <div class="col-lg-3 col-md-6 order-md-2 order-lg-3">
+                        <div class="footer_subscribe mt-50">
+                            <h5 class="footer_title">Subscribe</h5>
+                            <p>Subscribe to get news alerts from us.</p>
+                            <div class="subscribe_form">
+                                <form action="#">
+                                    <input type="text" placeholder="Email">
+                                    <button><i class="fa fa-paper-plane"></i></button>
+                                </form>
+                            </div>
+
+                        </div> <!-- footer link  -->
+                    </div>
+                </div> <!-- row -->
+            </div> <!-- container -->
+        </div> <!-- footer widget -->
+        <div class="footer_copyright text-center">
+            <div class="container">
+                <div class="copyright">
+                    <p>Copyright &copy; PABS 2025  All Rights Reserved.</p>
+                </div> <!-- copyright -->
+            </div> <!-- container -->
+        </div> <!-- footer copyright -->
+    </footer>
+
+    <!--====== FOOTER PART ENDS ======-->
+    <!--====== GO TO TOP PART START ======-->
+
+    <div class="go-top-area">
+        <div class="go-top-wrap">
+            <div class="go-top-btn-wrap">
+                <div class="go-top go-top-btn">
+                    <i class="fa fa-angle-double-up"></i>
+                    <i class="fa fa-angle-double-up"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Modal -->
+    <div class="modal fade " id="myModal" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header custome_header_bg_color">
+                    <h4 class="text-white font-weight-light">Conference registration</h4>
+
+                </div>
+                <div class="modal-body ">
+                    <h5>
+                        Dear Visitor, The registration section will be open soon.
+
+                    </h5>
+                </div>
+                <div class="modal-footer">
+                    <button class="main-btn btn-sm" data-dismiss="modal">Close</button>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.15.3/dist/sweetalert2.all.min.js"></script>
+<script src="/assets/js/vendor/jquery-1.12.4.min.js" asp-append-version="true"></script>
+<script src="/assets/js/vendor/modernizr-3.7.1.min.js" asp-append-version="true"></script>
+
+<!--====== Bootstrap js ======-->
+<script src="/assets/js/popper.min.js" asp-append-version="true"></script>
+<script src="/assets/js/bootstrap.min.js" asp-append-version="true"></script>
+<!--====== Slick js ======-->
+<script src="/assets/js/slick.min.js" asp-append-version="true"></script>
+<!--====== Magnific Popup js ======-->
+<script src="/assets/js/jquery.magnific-popup.min.js" asp-append-version="true"></script>
+<!--====== Appear js ======-->
+<script src="/assets/js/jquery.appear.min.js" asp-append-version="true"></script>
+<!--====== Counter Up js ======-->
+<script src="/assets/js/waypoints.min.js" asp-append-version="true"></script>
+<script src="/assets/js/jquery.counterup.js" asp-append-version="true"></script>
+<!--====== wow js ======-->
+<script src="/assets/js/wow.min.js" asp-append-version="true"></script>
+<!--====== Main js ======-->
+
+
+
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"8f6a471d9ec665eb","version":"2024.10.5","serverTiming":{"name":{"cfExtPri":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}},"token":"cd0b4b3a733644fc843ef0b185f98241","b":1}' crossorigin="anonymous"></script>
+<script src="/assets/js/main.js" asp-append-version="true"></script>
+<script src="/js/login/main.js" asp-append-version="true"></script>

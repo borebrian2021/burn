@@ -1,0 +1,111 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<section class="page_banner bg_cover" style="background-image: url(/assets/images/gallery/phone.jpg)">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="page_banner_content text-center">
+                    <h3 class="page_title">Contact Us</h3>
+                    <ul class="breadcrumb justify-content-center">
+                        <li><a href="/">Home</a></li>
+                        <li><a class="active" href="/Events">Events</a></li>
+                    </ul>
+                </div> <!-- page banner content -->
+            </div>
+        </div> <!-- row -->
+    </div> <!-- container -->
+</section>
+<section class="contact_area pt-100 pb-130">
+    <div class="services_shape_1" style="background-image: url(assets/images/shape/shape-12.png)"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="contact_form mt-50">
+                    <div class="section_title pb-30">
+                        <img src="~/assets/images/section_icon.png" alt="Icon">
+                        <h3 class="title">Get in touch</h3>
+                    </div> <!-- section title -->
+                    <form action="#" id="contactus">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="single_form">
+                                    <input type="text" placeholder="Name" name="name" id="name" required>
+                                    <input type="text" hidden  id="date" value="@DateTime.Now" required>
+                                </div> <!-- single form -->
+                            </div>
+                            <div class="col-md-6">
+                                <div class="single_form">
+                                    <input type="email" placeholder="Email" name="email" id="email" required>
+                                </div> <!-- single form -->
+                            </div>
+                            <div class="col-md-6">
+                                <div class="single_form">
+                                    <input type="text" name="subject" id="subject" placeholder="Subject" required>
+                                </div> <!-- single form -->
+                            </div>
+                            <div class="col-md-6">
+                                <div class="single_form">
+                                    <input type="text" name="number" id="number" placeholder="Number" required>
+                                </div> <!-- single form -->
+                            </div>
+                            <div class="col-md-12">
+                                <div class="single_form">
+                                    <textarea placeholder="Massage" name="message" id="message" required></textarea>
+                                </div> <!-- single form -->
+                            </div>
+                            <div class="col-md-12">
+                                <div class="single_form">
+                                    <button type="submit" class="main-btn">Send Massage</button>
+                                </div> <!-- single form -->
+                            </div>
+                        </div> <!-- row -->
+                    </form>
+                </div> <!-- contact form -->
+            </div>
+            <div class="col-lg-4">
+                <div class="contact_info pt-20">
+                    <ul>
+                        <li>
+                            <div class="single_info d-flex align-items-center mt-30">
+                                <div class="info_icon">
+                                    <i class="fa fa-home"></i>
+                                </div>
+                                <div class="info_content media-body">
+                                    <p>Menelik medical centre<br>  Menelik road, Nairobi Kenya</p>
+                                </div>
+                            </div> <!-- single info -->
+                        </li>
+                        <li>
+                            <div class="single_info d-flex align-items-center mt-30">
+                                <div class="info_icon">
+                                    <i class="fa fa-phone"></i>
+                                </div>
+                                <div class="info_content media-body">
+                                    <p>+254 724 888 666</p>
+                                   
+                                </div>
+                            </div> <!-- single info -->
+                        </li>
+                        <li>
+                            <div class="single_info d-flex align-items-center mt-30">
+                                <div class="info_icon">
+                                    <i class="fa fa-envelope"></i>
+                                </div>
+                                <div class="info_content media-body">
+                                    <p>info@panafricanburns.com</p>
+                                </div>
+                            </div> <!-- single info -->
+                        </li>
+                    </ul>
+                </div> <!-- contact info -->
+                <div class="contact_map mt-50">
+                    <div class="gmap_canvas">
+                        <iframe id="gmap_canvas" src="https://maps.google.com/maps?q=Menelik%20Medical%20Centre%2C%20Menelik%20Road&amp;t=&amp;z=13&amp;ie=UTF8&amp;iwloc=&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" width="600" height="450"></iframe>
+
+                    </div>
+                </div> <!-- contact map -->
+            </div>
+        </div> <!-- row -->
+    </div> <!-- container -->
+</section>
