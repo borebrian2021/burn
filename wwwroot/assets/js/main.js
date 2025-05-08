@@ -441,8 +441,8 @@ document.getElementById('register_members').addEventListener('submit', function 
     const formData = new FormData(this);
     const url =
         // Submit form data via fetch
-        fetch("https://localhost:44349/PesaPal/Upload", { // Replace with your controller name
-        //fetch("https://www.panafricanburns.com/PesaPal/Upload", { // Replace with your controller name
+        //fetch("https://localhost:44349/PesaPal/Upload", { // Replace with your controller name
+        fetch("https://www.panafricanburns.com/PesaPal/Upload", { // Replace with your controller name
             method: 'POST',
             body: formData
         })
