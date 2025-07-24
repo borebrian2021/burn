@@ -267,7 +267,7 @@ margin-15px;
                     // Define SMTP client
                     SmtpClient client = new SmtpClient("smtp.gmail.com", 587) // Replace with your SMTP server
                     {
-                        Credentials = new NetworkCredential("burnsociety0@gmail.com", "uvrsvwggxmxkjbpd"), // Replace with your credentials
+                        Credentials = new NetworkCredential("bkimutai2021@gmail.com", "kvsehgumrdbydgsz"), // Replace with your credentials
                         EnableSsl = true // Set to true if your server requires SSL/TLS
                     };
 

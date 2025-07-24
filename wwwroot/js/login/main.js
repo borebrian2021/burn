@@ -1,5 +1,5 @@
-//const dev_domain = "https://localhost:44349/"
-const dev_domain = "https://www.panafricanburns.com/"
+const dev_domain = "https://localhost:44349/"
+//const dev_domain = "https://www.panafricanburns.com/"
 
 $(document).ready(function () {
     $("#loading").hide();
