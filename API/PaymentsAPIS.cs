@@ -10,6 +10,8 @@ using Pesapal.APIHelper;
 using BURN_SOCIETY.Models;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using BurnSociety.umbraco.custome_models;
+using System.Net.Mail;
 
 namespace KSPRAS.Controllers;
 
@@ -46,13 +48,136 @@ public class PesaPal : Controller
             await DBContext.SaveChangesAsync();
 
             // Authenticate and Process Payment (returns only redirect_url)
-            var redirectUrl = await Authenticate(RandomRef, registrations);
+            //var redirectUrl = await Authenticate(RandomRef, registrations);
+            string htmlBody = $@"
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <title>Registration Successful</title>
+  <style>
+    body {{
+      font-family: Arial, sans-serif;
+      background-color:#f9f9f9;
+      color:#333;
+      margin:0;
+      padding:0;
+    }}
+    .container {{
+      max-width:650px;
+      margin:30px auto;
+      background:#fff;
+      padding:25px;
+      border-radius:12px;
+      box-shadow:0 4px 12px rgba(0,0,0,0.08);
+    }}
+    h2 {{
+      color:#ff2744;
+      margin-bottom:10px;
+    }}
+    p {{
+      margin:10px 0;
+    }}
+    table {{
+      width:100%;
+      border-collapse:collapse;
+      margin-top:20px;
+      border-radius:8px;
+      overflow:hidden;
+    }}
+    table th, table td {{
+      padding:12px;
+      border:1px solid #eee;
+      text-align:left;
+    }}
+    table th {{
+      background-color:#ff2744;
+      color:#fff;
+      font-weight:600;
+    }}
+    table tr:nth-child(even) {{
+      background-color:#fdf0f2;
+    }}
+    .footer {{
+      margin-top:20px;
+      font-size:13px;
+      color:#666;
+      text-align:center;
+    }}
+  </style>
+</head>
+<body>
+  <div class='container'>
+    <h2>✅ Registration Successful</h2>
+    <p>A new registration has been submitted for the <strong>PABS Conference</strong>.  
+       See details below:</p>
+
+    <table>
+      <tr><th>Bank payment Reference Code</th><td>{registrations.ReffCode}</td></tr>
+      <tr><th>Full Name</th><td>{registrations.FName} {registrations.SName}</td></tr>
+      <tr><th>Email Address</th><td>{registrations.EmailAddress}</td></tr>
+      <tr><th>Phone</th><td>{registrations.TelephoneNumber}</td></tr>
+      <tr><th>Institution</th><td>{registrations.Institution}</td></tr>
+      <tr><th>Cadre</th><td>{registrations.Cadre}</td></tr>
+      <tr><th>Category</th><td>{registrations.PaymentCategory}</td></tr>
+      <tr><th>Amount</th><td>{registrations.Currency} {registrations.Ammount}</td></tr>
+      <tr><th>Payment Status</th><td>Paid</td></tr>
+      <tr><th>Payment Confirmation</th><td>{registrations.PaymentConfirmation}</td></tr>
+    </table>
+
+    <div class='footer'>
+      <p>📩 If you have any questions, please reach out to the support team: burnsociety0@gmail.com</p>
+      <p><strong style='color:#ff2744;'>We look forward to hosting a successful event!</strong></p>
+    </div>
+  </div>
+</body>
+</html>";
+
+
+            try
+            {
+                // Define SMTP client
+                SmtpClient client = new SmtpClient("smtp.gmail.com", 587) // Replace with your SMTP server
+                {
+                    Credentials = new NetworkCredential("burnsociety0@gmail.com", "czamuizhvneqvvpu"), // Replace with your credentials
+                    EnableSsl = true // Set to true if your server requires SSL/TLS
+                };
+
+                // Create email message
+                MailMessage mail = new MailMessage
+                {
+                    From = new MailAddress("abstracts@panafricanburns.com"), // Replace with sender email
+                    Subject = "New registration made:" + registrations.FName + " " + registrations.SName,
+
+                    IsBodyHtml = true,
+                    Body = htmlBody
+
+                };
+
+                // Add recipient
+                //mail.To.Add("abstracts@panafricanburns.com"); // Replace with recipient email
+                mail.ReplyToList.Add(new MailAddress(registrations.EmailAddress.ToString()));
+                mail.CC.Add(new MailAddress("kulolazee@gmail.com"));
+                mail.CC.Add(new MailAddress("bkimutai2021@gmail.com"));
+                mail.CC.Add(new MailAddress("sogshaban@yahoo.com"));
+                mail.CC.Add(new MailAddress("burnsociety0@gmail.com"));
+                mail.CC.Add(new MailAddress("Dr.mastara@gmail.com"));
+                mail.CC.Add(new MailAddress(registrations.EmailAddress));
+                // Send email
+                client.Send(mail);
+                Console.WriteLine("Email sent successfully!");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Failed to send email. Error: " + ex.Message);
+            }
 
             return Json(new
             {
                 success = true,
                 message = "Abstract submitted successfully!",
-                data = redirectUrl
+                //data = redirectUrl
             });
         }
         catch (Exception ex)
@@ -66,24 +191,17 @@ public class PesaPal : Controller
             });
         }
     }
-
     public static float GetConferenceFee(string category, bool isKenyanNurse)
     {
-        // Get today's date in real-time
-        DateTime today = DateTime.Today;
-
-        // Define pricing periods
-        DateTime superEarlyBirdEnd = new DateTime(2025, 4, 30);
-        DateTime earlyBirdEnd = new DateTime(2025, 7, 31);
-        DateTime depositDeadline = new DateTime(2025, 8, 1);
-
-        // Define category-based pricing (Super Early Bird, Early Bird, On-site)
-        var pricing = new System.Collections.Generic.Dictionary<string, float[]>
+        // Define category-based pricing (flat rates)
+        var pricing = new System.Collections.Generic.Dictionary<string, float>
     {
-        { "Physician Consultant", new float[] { 250, 280, 300 } },
-        { "Physician Non-Consultant", new float[] { 200, 250, 280 } },
-        { "Nurses&Paramedics(East African)", new float[] { 1, 1, 1 } }, // KSH
-        { "Nurses&Paramedics(Non-EastAfrican)", new float[] { 100, 100, 100 } } // USD
+        { "Physician Consultant", 220f },                  // USD
+        { "Physician Non-Consultant", 150f },              // USD
+        { "East African Nurses and allied workers", 10000f }, // KSH
+        { "Non-East African Nurses Paramedics & Others", 100f }, // USD
+        { "Kenyan Consultants", 25000f },                  // KSH
+        { "Kenyan Registrars and Medical Officers", 15000f } // KSH
     };
 
         category = category?.Trim();
@@ -92,29 +210,67 @@ public class PesaPal : Controller
         {
             throw new ArgumentException("Invalid category selected.");
         }
-        // Determine the correct pricing bracket based on today's date
-        float fee;
-        if (today <= superEarlyBirdEnd)
-        {
-            fee = pricing[category][0]; // Super Early Bird Price
-        }
-        else if (today <= earlyBirdEnd)
-        {
-            fee = pricing[category][1]; // Early Bird Price
-        }
-        else
-        {
-            fee = pricing[category][2]; // On-Site Price
-        }
 
-        // Apply 50% deposit condition for Kenyan nurses
-        if (isKenyanNurse && category == "Nurses & Paramedics (East African)" && today <= superEarlyBirdEnd)
+        float fee = pricing[category];
+
+        // Special condition: deposit for Kenyan Nurses
+        if (isKenyanNurse && category == "East African Nurses and allied workers")
         {
-            return fee * 1f; // 50% deposit allowed
+            // Assuming you still want the deposit rule:
+            return fee * 0.5f; // 50% deposit
         }
 
         return fee;
     }
+
+    //public static float GetConferenceFee(string category, bool isKenyanNurse)
+    //{
+    //    // Get today's date in real-time
+    //    DateTime today = DateTime.Today;
+
+    //    // Define pricing periods
+    //    DateTime superEarlyBirdEnd = new DateTime(2025, 4, 30);
+    //    DateTime earlyBirdEnd = new DateTime(2025, 7, 31);
+    //    DateTime depositDeadline = new DateTime(2025, 8, 1);
+
+    //    // Define category-based pricing (Super Early Bird, Early Bird, On-site)
+    //    var pricing = new System.Collections.Generic.Dictionary<string, float[]>
+    //{
+    //    { "Physician Consultant", new float[] { 250, 280, 300 } },
+    //    { "Physician Non-Consultant", new float[] { 200, 250, 280 } },
+    //    { "Nurses&Paramedics(East African)", new float[] { 1, 1, 1 } }, // KSH
+    //    { "Nurses&Paramedics(Non-EastAfrican)", new float[] { 100, 100, 100 } } // USD
+    //};
+
+    //    category = category?.Trim();
+
+    //    if (!pricing.ContainsKey(category))
+    //    {
+    //        throw new ArgumentException("Invalid category selected.");
+    //    }
+    //    // Determine the correct pricing bracket based on today's date
+    //    float fee;
+    //    if (today <= superEarlyBirdEnd)
+    //    {
+    //        fee = pricing[category][0]; // Super Early Bird Price
+    //    }
+    //    else if (today <= earlyBirdEnd)
+    //    {
+    //        fee = pricing[category][1]; // Early Bird Price
+    //    }
+    //    else
+    //    {
+    //        fee = pricing[category][2]; // On-Site Price
+    //    }
+
+    //    // Apply 50% deposit condition for Kenyan nurses
+    //    if (isKenyanNurse && category == "Nurses & Paramedics (East African)" && today <= superEarlyBirdEnd)
+    //    {
+    //        return fee * 1f; // 50% deposit allowed
+    //    }
+
+    //    return fee;
+    //}
 
     public async Task<string> Authenticate(string Refference, Registrations abstractModel)
     {

@@ -22,6 +22,7 @@
         public string PaymentCategory { get; set; } // Corresponds to <textarea name="conclusion">
         public string Currency { get; set; } // Corresponds to <textarea name="conclusion">
         public bool KenyanNurse { get; set; } // Corresponds to <textarea name="conclusion">
+        public bool Refference { get; set; } 
     }
     
 }

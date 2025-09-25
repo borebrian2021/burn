@@ -1,0 +1,96 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="contact_area pt-100 pb-130">
+
+
+
+
+
+    <div class="panel panel-default mt-50">
+        <div class="panel-heading">Agents Data</div>
+        <div class="panel-body">
+            <div class="table-responsive m-2">
+                <div class="fixed-table-toolbar">
+                    <div class="bs-bars float-left">
+                        <div id="toolbar" class="select">
+                            <select class="form-control" onchange="$('#table_abstracts').tableExport({type:'pdf',pdfmake:{enabled:true,docDefinition:{pageOrientation:'landscape'}}});">
+                                <option value="">
+                                    Export Basic
+                                </option>'json', 'xml', 'png', 'csv', 'txt', 'sql', 'doc', 'excel', 'xlsx', 'pdf'
+                                <option value="all">
+                                    Export All
+                                </option>
+                                <option value="selected">
+                                    Export Selected
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+               @*      <div class="columns columns-right btn-group float-right">
+                        <button class="btn btn-secondary" type="button" name="toggle" aria-label="Show card view" title="Show card view"><i class="bi bi-toggle-off"></i> </button><div class="keep-open btn-group">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-label="Columns" title="Columns">
+                                <i class="bi bi-list-ul"></i>
+
+                                <span class="caret"></span>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-end"><label class="dropdown-item dropdown-item-marker"><input type="checkbox" data-field="id" value="1" checked="checked"> <span>ID</span></label><label class="dropdown-item dropdown-item-marker"><input type="checkbox" data-field="name" value="2" checked="checked"> <span>Item Name</span></label><label class="dropdown-item dropdown-item-marker"><input type="checkbox" data-field="price" value="3" checked="checked"> <span>Item Price</span></label></div>
+                        </div>
+                        <div class="export btn-group">
+                            <button class="btn btn-secondary dropdown-toggle show" aria-label="Export data" data-bs-toggle="dropdown" type="button" title="Export data" aria-expanded="true">
+                                <i class="bi bi-download"></i>
+
+                                <span class="caret"></span>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-end show" style="position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate3d(0px, 39.3333px, 0px);" data-popper-placement="bottom-end">
+                                <a class="dropdown-item " href="#" data-type="json">JSON</a><a class="dropdown-item " href="#" data-type="xml">XML</a><a class="dropdown-item " href="#" data-type="csv">CSV</a><a class="dropdown-item " href="#" data-type="txt">TXT</a><a class="dropdown-item " href="#" data-type="sql">SQL</a><a class="dropdown-item " href="#" data-type="excel">MS-Excel</a><a class="dropdown-item " href="#" data-type="pdf">PDF</a>
+                            </div>
+                        </div>
+                    </div> *@
+                </div>
+                <table class="table table-bordered table-striped" id="table_abstracts" >
+                    <thead>
+                        <tr style="color:white">
+                            <th>Id</th>
+                            <th>Email</th>
+                            <th>FirstName</th>
+                            <th>LastName</th>
+                            <th>Institution</th>
+                            <th>Abstract</th>
+                            <th>Phone</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                            foreach (var x in ViewBag.abstracts)
+                            {
+                                <tr>
+                                    <td>@x.Id</td>
+                                    <td>@x.Email</td>
+                                    <td>@x.FirstName</td>
+                                    <td>@x.LastName</td>
+                                    <td>@x.Institution</td>
+                                    <td>@Html.Raw(x.Abstract)</td>
+                                    <td>@x.Phone</td>
+                                </tr>
+                                
+                            }
+                          
+                        }
+                       
+                     
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- To export arabic characters include mirza_fonts.js _instead_ of vfs_fonts.js
+<script type="text/javascript" src="libs/pdfmake/mirza_fonts.js"></script>
+-->
+<!-- For a chinese font include either gbsn00lp_fonts.js or ZCOOLXiaoWei_fonts.js _instead_ of vfs_fonts.js
+<script type="text/javascript" src="libs/pdfmake/gbsn00lp_fonts.js"></script>
+-->

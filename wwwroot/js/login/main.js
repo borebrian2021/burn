@@ -1,5 +1,5 @@
-const dev_domain = "https://localhost:44349/"
-//const dev_domain = "https://www.panafricanburns.com/"
+//const dev_domain = "https://localhost:44349/"
+const dev_domain = "https://www.panafricanburns.com/"
 
 $(document).ready(function () {
     $("#loading").hide();
@@ -289,5 +289,10 @@ function test() {
         currencySelect.readOnly = false; // Enable selection if no category is selected
     }
     
+} function downloadPDF() {
+    // CSV format
+    $('#table_abstracts').tableExport({ type: 'csv' });
 }
+
+
 

@@ -151,123 +151,43 @@ namespace BURN_SOCIETY.API
 <html lang='en'>
 <head>
     <meta charset='UTF-8'>
-    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-    <title>User Details</title>
-    <style>
-        body {{
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-        }}
-        .email-container {{
-            max-width: 600px;
-            margin: 20px auto;
-           
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }}
-.email-button {{
-           background-color:#ff2744; 
-border-radius:8px; 
-padding:10px;
-color:white;
-margin-15px;
-        }}
-        .email-header {{
-            background-color: #ff2744;
-            color: #ffffff;
-            padding: 20px;
-            text-align: center;
-        }}
-        .email-header h1 {{
-            margin: 0;
-            font-size: 24px;
-            color:white;
-
-          
-        }}
-        .email-body {{
-            padding: 20px;
-            color: #333333;
-        }}
-        .details-table {{
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }}
-        .details-table th, .details-table td {{
-            padding: 12px;
-            text-align: left;
-            border-bottom: 1px solid #dddddd;
-        }}
-        .details-table th {{
-            background-color: #f8f9fa;
-            font-weight: bold;
-        }}
-        .details-table td {{
-            background-color: #ffffff;
-        }}
-        .email-footer {{
-            background-color: #f8f9fa;
-            padding: 10px;
-            text-align: center;
-            font-size: 12px;
-            color: #666666;
-        }}
-    </style>
 </head>
-<body>
-    <div class='email-container'>
-        <div class='email-header'>
-            <h1>Abstract Details</h1>
+<body style='font-family: Arial, sans-serif; background-color: #f4f4f4; margin: 0; padding: 0;'>
+    <div style='max-width: 600px; margin: 20px auto; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); background-color: #ffffff;'>
+        <div style='background-color: #ff2744; color: #ffffff; padding: 20px; text-align: center;'>
+            <h1 style='margin: 0; font-size: 24px;'>Abstract Details</h1>
         </div>
-        <div class='email-body'>
-            <table class='details-table'>
+        <div style='padding: 20px; color: #333333;'>
+            <table style='width: 100%; border-collapse: collapse;'>
                 <tr>
-                    <th><b>Field</b></th>
-                    <th><b>Details</b></th>
+                    <th style='padding: 12px; background-color: #f8f9fa; text-align: left;'>Field</th>
+                    <th style='padding: 12px; background-color: #f8f9fa; text-align: left;'>Details</th>
                 </tr>
-                <tr>
-                    <td><b>Email</b></td>
-                    <td>{files.Email}</td>
-                </tr>
-                <tr>
-                    <td><b>First Name</b></td>
-                    <td>{files.FirstName}</td>
-                </tr>
-                <tr>
-                    <td><b>Last Name</b></td>
-                    <td>{files.LastName}</td>
-                </tr>
-                <tr>
-                    <td><b>Institution</b></td>
-                    <td>{files.Institution}</td>
-                </tr>
-                <tr>
-                    <td><b>Abstract</b></td>
-                    <td>{files.Abstract}</td>
-                </tr>
-                <tr>
-                    <td>Phone</td>
-                    <td>{files.Phone}</td>
-                </tr>
+                <tr><td style='padding: 12px;'>Email</td><td style='padding: 12px;'>{files.Email}</td></tr>
+                <tr><td style='padding: 12px;'>First Name</td><td style='padding: 12px;'>{files.FirstName}</td></tr>
+                <tr><td style='padding: 12px;'>Last Name</td><td style='padding: 12px;'>{files.LastName}</td></tr>
+                <tr><td style='padding: 12px;'>Institution</td><td style='padding: 12px;'>{files.Institution}</td></tr>
+                <tr><td style='padding: 12px;'>Abstract</td><td style='padding: 12px;'>{files.Abstract}</td></tr>
+                <tr><td style='padding: 12px;'>Phone</td><td style='padding: 12px;'>{files.Phone}</td></tr>
             </table>
         </div>
-        <div class='email-footer'>
-<a href='www.panafricanburns.com'  class='email-button'>View All Submissions</a>
+        <div style='background-color: #f8f9fa; padding: 20px; text-align: center; font-size: 12px; color: #666666;'>
+            <a href='https://www.panafricanburns.com/Home/Upload' 
+               style='display: inline-block; background-color: #ff2744; color: white; padding: 10px 20px; text-decoration: none; border-radius: 8px; margin-bottom: 10px;'>
+               Submit Abstract
+            </a>
             <p>This is an automated email. Please do not reply.</p>
         </div>
     </div>
 </body>
 </html>";
+
             try
-                {
+            {
                     // Define SMTP client
                     SmtpClient client = new SmtpClient("smtp.gmail.com", 587) // Replace with your SMTP server
                     {
-                        Credentials = new NetworkCredential("bkimutai2021@gmail.com", "kvsehgumrdbydgsz"), // Replace with your credentials
+                        Credentials = new NetworkCredential("burnsociety0@gmail.com", "czamuizhvneqvvpu"), // Replace with your credentials
                         EnableSsl = true // Set to true if your server requires SSL/TLS
                     };
 
@@ -283,11 +203,13 @@ margin-15px;
                 };
 
                     // Add recipient
-                    mail.To.Add("abstracts@panafricanburns.com"); // Replace with recipient email
+                    //mail.To.Add("abstracts@panafricanburns.com"); // Replace with recipient email
                     mail.ReplyToList.Add(new MailAddress(files.Email.ToString()));
-                    mail.CC.Add(new MailAddress("kulolazee@gmail.com"));
-                    mail.CC.Add(new MailAddress("bkimutai2021@gmail.com"));
-                    mail.CC.Add(new MailAddress("sogshaban@yahoo.com"));
+                mail.CC.Add(new MailAddress("kulolazee@gmail.com"));
+                mail.CC.Add(new MailAddress("bkimutai2021@gmail.com"));
+                mail.CC.Add(new MailAddress("sogshaban@yahoo.com"));
+                mail.CC.Add(new MailAddress("burnsociety0@gmail.com"));
+                mail.CC.Add(new MailAddress("Dr.mastara@gmail.com"));
                 // Send email
                 client.Send(mail);
                     Console.WriteLine("Email sent successfully!");

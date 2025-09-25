@@ -5146,3 +5146,24 @@ p {
 .custome-input {
     border: solid 1px #ff2744 !important;
 }
+
+.poster1 {
+    margin: 10px;
+    width: 100%;
+    object-fit: contain;
+}
+.poster2 {
+    margin: 10px;
+    width: 100%;
+    object-fit:contain;
+}
+.poster11 {
+    margin: 10px;
+    height: 700px;
+    object-fit: contain;
+}
+.poster22 {
+    margin: 10px;
+    height: 500px;
+    object-fit:contain;
+}

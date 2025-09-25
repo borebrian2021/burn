@@ -183,6 +183,9 @@ namespace BURN_SOCIETY.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("Refference")
+                        .HasColumnType("bit");
+
                     b.Property<string>("SName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");

@@ -200,7 +200,7 @@ namespace BURN.Controllers
         {
             return View();
         }   
-            
+          
             
            public IActionResult ConferenceInformation()
         {
@@ -209,7 +209,9 @@ namespace BURN.Controllers
         }
         public IActionResult Abstracts()
         {
-            return View();
+            var abstracts = DBContext.Files.ToList();
+            ViewBag.abstracts = abstracts;
+            return View(ViewBag.abstracts);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
